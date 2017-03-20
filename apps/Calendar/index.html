@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <style>
+    .calendar-wrap {
+        padding: 1rem;
+        background-color: #999;
+    }
+    </style>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <!-- 日历的父容器 -->
+    <section class="calendar-wrap"></section>
+    <script src="./js/index.js"></script>
+    <script>
+    // 测试使用
+    var $calendarWrapWrap = document.querySelector('.calendar-wrap'),
+        _timeList = [
+            '2017-02-12',
+            '2017-02-13',
+            '2017-02-14',
+            '2017-02-15',
+            '2017-02-16',
+            '2017-02-17',
+            '2017-02-28'
+        ],
+        calender = new Calendar($calendarWrapWrap, _timeList);
+    </script>
+</body>
+
+</html>
