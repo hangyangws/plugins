@@ -4,7 +4,7 @@
 
 ### [日历插件](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)
 
-### [圆形图进度条插件](https://github.com/hangyangws/myPlugin/tree/master/apps/sector)
+### [圆形度条插件](https://github.com/hangyangws/myPlugin/tree/master/apps/sector)
 
 ### [表单验证插件](https://github.com/hangyangws/myPlugin/tree/master/apps/verify)
 
