@@ -1,0 +1,30 @@
+{
+  "name": "demoshow",
+  "version": "1.0.0",
+  "description": "DemoShow for hangyangws",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hangyangws/DemoShow.git"
+  },
+  "keywords": [
+    "html",
+    "javascript",
+    "css",
+    "vue",
+    "demo"
+  ],
+  "author": "hangyangws",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hangyangws/DemoShow/issues"
+  },
+  "homepage": "https://github.com/hangyangws/DemoShow#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1"
+  }
+}
