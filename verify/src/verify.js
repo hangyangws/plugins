@@ -1,16 +1,13 @@
 /**
  * Created by hangyangws(hangyangws@foxmail.com) in 2016-12-30.
  */
+
 ;
 /**
- * [目前版本支持jquery、Zepto(不支持原生js)
- * 使用方式：
- * 在输入控件定义data-vname、data-vtype属性，如果是同一组radio、checkbox那么只需要给第一个定义
- * 注意：name只能为[A-Zz-z_0-9]]
  * @param  {[function]}  $         [Zepto || jquery || 浏览器报错]
  * @param  {[undefined]} undefined [undefined内部缓存]
  */
-! function(win, $, undefined) {
+! function(g, $, undefined) {
     // 构造函数定义
     function Verify($parent) {
         if (!$parent) { // 为了规范与性能，必须传入父级节点
@@ -155,6 +152,6 @@
         }
     };
 
-    // 暴露给F || win
-    (win.F || win).Verify = Verify;
-}(window || this, Zepto || jQuery);
+    // 暴露给F || global
+    (g.F || g).Verify = Verify;
+}(gdow || this, Zepto || jQuery);

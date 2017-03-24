@@ -32,6 +32,3 @@ clip支持4个参数，参数顺序依次为长度单位（top, right, bottom, l
 clip是裁剪的意思，类似于`PhotoShop`的蒙层  
 clip的4个参数围起来的区域表示元素的可视区域  
 [MDN-clip](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip)
-
-
-
