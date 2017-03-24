@@ -20,17 +20,28 @@
     <section class="calendar-wrap"></section>
     <script src="./js/index.js"></script>
     <script>
+    var NowDate = function() {
+        var d = new Date();
+        this.y = d.getFullYear();
+        this.m = d.getMonth() + 1;
+    };
+    NowDate.prototype.getYM = function() {
+        return [this.y, this.m].join('-');
+    };
+    NowDate.prototype.getRandomDate = function(_n) {
+        _n = _n || 10;
+        (_n > 28) && (_n = 28);
+        (_n < 1) && (_n = 1);
+        var _date = [],
+            _ym = this.getYM();
+        while (_n--) {
+            _date.push([_ym, _n].join('-'));
+        }
+        return _date;
+    };
     // 测试使用
     var $calendarWrapWrap = document.querySelector('.calendar-wrap'),
-        _timeList = [
-            '2017-02-12',
-            '2017-02-13',
-            '2017-02-14',
-            '2017-02-15',
-            '2017-02-16',
-            '2017-02-17',
-            '2017-02-28'
-        ],
+        _timeList = (new NowDate).getRandomDate(10),
         calender = new Calendar($calendarWrapWrap, _timeList);
     </script>
 </body>
