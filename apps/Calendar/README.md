@@ -32,4 +32,4 @@ var $calendarWrapWrap = document.querySelector('.calendar-wrap'),
 
 ### DEMO
 
-[点击查看](http://hangyangws.win/DemoShow/apps/Calendar/)
+[点击查看](http://hangyangws.win/myPlugin/apps/Calendar/)
