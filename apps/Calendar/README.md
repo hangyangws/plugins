@@ -11,7 +11,7 @@
 
 ### 使用方法
 
-首先开发者要从[github](https://github.com/hangyangws/DemoShow/tree/master/apps/Calendar)上检出代码  
+首先开发者要从[github](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)上检出代码  
 再引入相应的CSS文件和JS文件  
 然后只需要写如下相关的代码即可
 
