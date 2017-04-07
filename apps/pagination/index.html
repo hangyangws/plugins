@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>pagination</title>
 </head>
+
 <body>
-    <div></div>
+    <div id="pagination"></div>
+    <script src="./js/pagination.js"></script>
+    <script>
+    var myPagination = new Pagination({
+        el: document.querySelector('#pagination'), // 分页DOM容器（必须）
+
+        totalNum: 100, // 总条数
+        eachNum: 10, // 每页数，（总页数 = 总条数 / 每页数，向上取整）
+        current: 1, // 当前页
+        count: 2, // 当前页前后多做几个分页
+
+        prevCls: 'p-prev', // 上一页class
+        nextCls: 'p-next', // 下一页class
+        disableCls: 'p-disable', // 禁用状态class，用于上一页下一页不可用
+        txtCls: 'p-txt', // 间隔页class
+        nowCls: 'p-now', // 当前页class
+
+        // 下面2个参数以callback优先（有callback时href没有效果）
+        href: 'baidu.com?${index}', // 点击超链接直接跳转的url，默认为空（点击不跳转），链接中使用${index}作为关键字
+        callback: null, // 点击链接的毁掉函数，默认为null
+
+        prevContent: '<', // 上一页内容
+        nextContent: '>', // 下一页内容
+        homeContent: '1', // 首页内容，默认为1
+        endContent: '', // 尾页内容，默认为总页数
+
+        isHide: false, // 总页数为0或1时不显示
+        keepPageNav: true // 一直显示上一页下一页
+    });
+    </script>
 </body>
+
 </html>
