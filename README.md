@@ -2,10 +2,14 @@
 
 > 在[`app`](https://github.com/hangyangws/myPlugin/tree/master/apps)目录下包含我制作的一些简单插件
 
-### [日历插件](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)
+### [日历](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)
 
-### [圆形度条插件](https://github.com/hangyangws/myPlugin/tree/master/apps/sector)
+### [分页器](https://github.com/hangyangws/myPlugin/tree/master/apps/pagination)
 
-### [表单验证插件](https://github.com/hangyangws/myPlugin/tree/master/apps/verify)
+### [事件模块](https://github.com/hangyangws/myPlugin/tree/master/apps/touch)
+
+### [圆形度条](https://github.com/hangyangws/myPlugin/tree/master/apps/sector)
+
+### [表单验证](https://github.com/hangyangws/myPlugin/tree/master/apps/verify)
 
 欢迎阅读，共同学习^_^
