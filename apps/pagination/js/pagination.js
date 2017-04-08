@@ -67,6 +67,11 @@
 
         // 渲染节点
         _this.render();
+
+        // 事件绑定
+        (!_opt.href && _opt.callback) && _opt.el.on('tap', 'a', function() {
+            _opt.callback(this.dataset.index);
+        });
     }
 
     // 原型对象
