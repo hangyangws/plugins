@@ -41,7 +41,7 @@
 
         // 下面2个参数以callback优先（有callback时href没有效果）
         href: '', // 点击超链接直接跳转的url，默认为空（点击不跳转），链接中使用${index}作为关键字
-        callback: null, // 点击链接的毁掉函数，默认为null
+        callback: null, // 点击链接的回调函数，默认为null
 
         prevContent: '<', // 上一页内容
         nextContent: '>', // 下一页内容
@@ -70,33 +70,48 @@
     // 原型对象
     var proto = Pagination.prototype;
 
-    // 获取分页标签
-    proto.getDom = function(_index) {
-        var _opt = this.opts,
-            _content =
-            _index === 1 ?
-            _opt.homeContent :
-            (_index === _opt.pageNum ?
-                _opt.endContent :
-                (_index === _opt.current - 1 ?
-                    _opt.prevContent :
-                    (_index === _opt.current + 1 ?
-                        _opt.nextContent :
-                        _index
-                    )
+    /**
+     * [getDom 获取分页标签]
+     * @param  {[unmber]} _index [页标]
+     * @param  {[string]} _flip  [是否是翻页按钮]
+     * @return {[string]}        [DOM字符串]
+     */
+    proto.getDom = function(_index, _flip) {
+        var _opt = this.opts;
+
+        // “当前页”或“省略页”
+        if (_index === _opt.current || typeof _index === 'undefined') {
+            return '<span class="${class}">${content}</span>'
+                .replace('${class}', _opt[_index ? 'nowCls' : 'txtCls'])
+                .replace('${content}', _index ? _opt.current : '…');
+        }
+
+        var _content =
+            _flip ?
+            (_index === _opt.current - 1 ?
+                _opt.prevContent : // 上页
+                _opt.nextContent // 尾页
+            ) :
+            (_index === 1 ?
+                _opt.homeContent : // 首页
+                (_index === _opt.pageNum ?
+                    _opt.endContent : // 尾页
+                    _index // 其他
                 )
             ),
             _class =
-            _index === _opt.current - 1 ?
-            _opt.prevCls :
-            (_index === _opt.current + 1 ?
-                _opt.nextCls :
-                ''
-            );
+            _flip ?
+            (_index === _opt.current - 1 ?
+                _opt.prevCls : // 上页
+                _opt.nextCls // 下页
+            ) :
+            ''; // 其他
 
+        // 是否添加“禁用类”
         if (((_index === _opt.current - 1) && _opt.current === 1) || ((_index === _opt.current + 1) && _opt.current === _opt.pageNum)) {
-            _class += _opt.disableCls;
+            _class += ' ' + _opt.disableCls;
         }
+
         return '<a href="${href}" data-index="${index}" class="${class}">${content}</a>'
             .replace('${href}', _opt.href ? _opt.href.replace('${index}', _index) : 'javascript:;')
             .replace('${index}', _index)
@@ -108,22 +123,71 @@
     proto.render = function() {
         var _this = this,
             _opt = _this.opts,
-            _pagination = []; // 临时数组，存放分页字符串
+            _pagination = [], // 临时数组，存放分页字符串
+            _from,
+            _to;
+
         // 判断是否展示
         if (_opt.isHide && _opt.pageNum < 2) {
             _opt.el.style.display = 'none';
             return;
         }
+
         // 上一页
         if (_opt.keepPageNav || _opt.current > 1) {
-            _pagination.push(_this.getDom(_opt.current - 1));
+            _pagination.push(_this.getDom(_opt.current - 1, true));
         }
+
         // 首页
-        // 当前页面和两边的页和省略号
+        _pagination.push(_this.getDom(1));
+
+        // 左边省略
+        if (_opt.current > _opt.count + 2) {
+            // 左边省略标签
+            _pagination.push(_this.getDom());
+            // 其他导航
+            _from = _opt.current - _opt.count;
+            _to = _opt.current - 1;
+            while (_from <= _to) {
+                _pagination.push(_this.getDom(_from++));
+            }
+        } else {
+            _from = 2;
+            _to = _opt.current - 1;
+            while (_from <= _to) {
+                _pagination.push(_this.getDom(_from++));
+            }
+        }
+
+        // 当前页(非第一页才显示)
+        if (_opt.current !== 1 && _opt.current !== _opt.pageNum) {
+            _pagination.push(_this.getDom(_opt.current));
+        }
+
+        // 右边省略
+        if (_opt.current < _opt.pageNum - _opt.count - 1) {
+            // 其他导航
+            _from = _opt.current + 1;
+            _to = _opt.current + _opt.count;
+            while (_from <= _to) {
+                _pagination.push(_this.getDom(_from++));
+            }
+            // 右边省略标签
+            _pagination.push(_this.getDom());
+        } else {
+            _from = _opt.current + 1;
+            _to = _opt.pageNum - 1;
+            while (_from <= _to) {
+                _pagination.push(_this.getDom(_from++));
+            }
+        }
+
         // 尾页
+        _pagination.push(_this.getDom(_opt.pageNum));
+
         // 下一页
         if (_opt.keepPageNav || _opt.current < _opt.pageNum) {
-            _pagination.push(_this.getDom(_opt.current + 1));
+            _pagination.push(_this.getDom(_opt.current + 1, true));
         }
 
         // 渲染DOM
