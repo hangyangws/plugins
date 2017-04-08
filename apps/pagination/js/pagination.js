@@ -1,5 +1,7 @@
 ;
 ! function(g, doc, undefined) {
+    'use strict'; // 触发严格模式
+
     // 对象克隆
     function cloneObj(obj) {
         if (typeof obj !== 'object') {
@@ -41,7 +43,7 @@
 
         // 下面2个参数以callback优先（有callback时href没有效果）
         href: '', // 点击超链接直接跳转的url，默认为空（点击不跳转），链接中使用${index}作为关键字
-        callback: null, // 点击链接的回调函数，默认为null
+        callback: null, // 点击链接的回调函数，默认为null，函数参数为跳转页标
 
         prevContent: '<', // 上一页内容
         nextContent: '>', // 下一页内容
