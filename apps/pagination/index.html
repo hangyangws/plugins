@@ -16,7 +16,7 @@
 
         totalNum: 100, // 总条数
         eachNum: 10, // 每页数，（总页数 = 总条数 / 每页数，向上取整）
-        current: 10, // 当前页
+        current: 8, // 当前页
         count: 2, // 当前页前后多做几个分页
 
         prevCls: 'p-prev', // 上一页class
@@ -26,9 +26,9 @@
         nowCls: 'p-now', // 当前页class
 
         // 下面2个参数以callback优先（有callback时href没有效果）
-        href: 'www.abc.com?${index}', // 点击超链接直接跳转的url，默认为空（点击不跳转），链接中使用${index}作为关键字
-        callback: function(_index) {
-            console.log(_index);
+        href: '', // 点击超链接直接跳转的url，默认为空（点击不跳转），链接中使用${index}作为关键字
+        callback: function(_index, dom) {
+            this.jump(_index);
         }, // 点击链接的毁掉函数，默认为null
 
         prevContent: '<', // 上一页内容

@@ -17,11 +17,20 @@
         }
         return newobj;
     }
+
+    // 判断是否为空(0不能算空，空字符串算空)
+    function notEmpty(_v) {
+        if (typeof _v === 'number' || _v) {
+            return true;
+        }
+        return false;
+    }
+
     // 简单的对象融合
     function extendsObj(to, from) {
         to = cloneObj(to);
         for (var i in to) {
-            from[i] && (to[i] = from[i]);
+            notEmpty(from[i]) && (to[i] = from[i]);
         }
         return to;
     };
@@ -43,7 +52,9 @@
 
         // 下面2个参数以callback优先（有callback时href没有效果）
         href: '', // 点击超链接直接跳转的url，默认为空（点击不跳转），链接中使用${index}作为关键字
-        callback: null, // 点击链接的回调函数，默认为null，函数参数为跳转页标
+
+        // 点击链接的回调函数，默认为null，函数一参数为跳转页标，参数二为当前点击dom，this指向当前实例，
+        callback: null,
 
         prevContent: '<', // 上一页内容
         nextContent: '>', // 下一页内容
@@ -60,8 +71,10 @@
 
         // 接受用户参数
         var _opt = _this.opts = extendsObj(defaults, options);
+
         // 总页数
         _opt.pageNum = Math.ceil(_opt.totalNum / _opt.eachNum);
+
         // 尾页内容判断
         _opt.endContent = _opt.endContent || _opt.pageNum;
 
@@ -69,8 +82,9 @@
         _this.render();
 
         // 事件绑定
-        (!_opt.href && _opt.callback) && _opt.el.on('tap', 'a', function() {
-            _opt.callback(this.dataset.index);
+        (!_opt.href && typeof _opt.callback === 'function') &&
+        _opt.el.on('tap', 'a', function() {
+            _opt.callback.apply(_this, [this.dataset.index, this]);
         });
     }
 
@@ -115,7 +129,12 @@
             ''; // 其他
 
         // 是否添加“禁用类”
-        if (((_index === _opt.current - 1) && _opt.current === 1) || ((_index === _opt.current + 1) && _opt.current === _opt.pageNum)) {
+        if (
+            // 当前为首页，并且渲染上一页
+            ((_index === _opt.current - 1) && _opt.current === 1) ||
+            // 当前为尾页，并且渲染下一页
+            ((_index === _opt.current + 1) && _opt.current === _opt.pageNum)
+        ) {
             _class += ' ' + _opt.disableCls;
         }
 
@@ -199,6 +218,32 @@
 
         // 渲染DOM
         _opt.el.innerHTML = _pagination.join('');
+    };
+
+    // 跳转到多少页
+    proto.jump = function(_index) {
+        var _this = this,
+            _opt = _this.opts;
+        if (_index && _index > 0 && _index <= _opt.pageNum) {
+            _opt.current = _index - 0;
+
+            // 渲染节点
+            _this.render();
+        }
+    };
+
+    // 上一页
+    proto.prev = function() {
+        var _this = this,
+            _opt = _this.opts;
+        _this.jump(_opt.current - 1);
+    };
+
+    // 下一页
+    proto.next = function() {
+        var _this = this,
+            _opt = _this.opts;
+        _this.jump(_opt.current + 1);
     };
 
     // 暴露给全局
