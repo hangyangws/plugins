@@ -11,16 +11,16 @@
     var on = (function() {
             if (doc.addEventListener) {
                 return function(e, t, h) {
-                    e.addEventListener(t, h, false)
+                    e.addEventListener(t, h, false);
                 }
             }
             if (doc.attachEvent) {
                 return function(e, t, h) {
-                    e.attachEvent('on' + t, h)
+                    e.attachEvent('on' + t, h);
                 }
             }
             return function(e, t, h) {
-                e['on' + t] = h
+                e['on' + t] = h;
             }
         })(),
         getE = function(e) {
@@ -67,7 +67,7 @@
                 tapEndTime = e.timeStamp;
                 if (!cancleClick && (tapEndTime - tapStartTime) < tapTime) {
                     if (typeof _child === 'function') {
-                        _child.call(_dom);
+                        _child.call(_dom, e);
                         return;
                     }
 
@@ -76,7 +76,7 @@
                     // 在元素内部找到子元素
                     if ([].slice.call(_dom.querySelectorAll(_child)).indexOf(src) !== -1) {
                         // 执行用户绑定的回调事件，绑定当前触发元素为this
-                        _callback.call(src);
+                        _callback.call(src, e);
                     }
                 }
             });
@@ -107,7 +107,7 @@
             // 在元素内部找到子元素
             if ([].slice.call(this.querySelectorAll(_child)).indexOf(src) !== -1) {
                 // 执行用户绑定的回调事件，绑定当前触发元素为this
-                _callback.call(src);
+                _callback.call(src, e);
             }
         });
     };

@@ -18,19 +18,11 @@
         return newobj;
     }
 
-    // 判断是否为空(0不能算空，空字符串算空)
-    function notEmpty(_v) {
-        if (typeof _v === 'number' || _v) {
-            return true;
-        }
-        return false;
-    }
-
     // 简单的对象融合
     function extendsObj(to, from) {
         to = cloneObj(to);
         for (var i in to) {
-            notEmpty(from[i]) && (to[i] = from[i]);
+            (typeof from[i] !== 'undefined') && (to[i] = from[i]);
         }
         return to;
     };
@@ -60,6 +52,7 @@
         nextContent: '>', // 下一页内容
         homeContent: '1', // 首页内容，默认为1
         endContent: '', // 尾页内容，默认为总页数
+        txtContent: '…', // 空白页内容，默认为…
 
         isHide: false, // 总页数为0或1时不显示
         keepPageNav: true // 一直显示上一页下一页
@@ -71,6 +64,12 @@
 
         // 接受用户参数
         var _opt = _this.opts = extendsObj(defaults, options);
+
+        // 如果用户传入字符串 则修改为数字
+        _opt.totalNum = _opt.totalNum - 0; // 总条数
+        _opt.eachNum = _opt.eachNum - 0; // 每页数，（总页数 = 总条数 / 每页数，向上取整）
+        _opt.current = _opt.current - 0; // 当前页
+        _opt.count = _opt.count - 0; // 当前页前后多做几个分页
 
         // 总页数
         _opt.pageNum = Math.ceil(_opt.totalNum / _opt.eachNum);
@@ -104,7 +103,7 @@
         if (_index === _opt.current || typeof _index === 'undefined') {
             return '<span class="${class}">${content}</span>'
                 .replace('${class}', _opt[_index ? 'nowCls' : 'txtCls'])
-                .replace('${content}', _index ? _opt.current : '…');
+                .replace('${content}', _index ? _opt.current : _opt.txtContent);
         }
 
         var _content =
@@ -126,9 +125,9 @@
                 _opt.prevCls : // 上页
                 _opt.nextCls // 下页
             ) :
-            ''; // 其他
-
-        // 是否添加“禁用类”
+            '', // 其他
+            // 是否添加“禁用类”
+            _href = _opt.href ? _opt.href.replace('${index}', _index) : 'javascript:;';
         if (
             // 当前为首页，并且渲染上一页
             ((_index === _opt.current - 1) && _opt.current === 1) ||
@@ -136,10 +135,11 @@
             ((_index === _opt.current + 1) && _opt.current === _opt.pageNum)
         ) {
             _class += ' ' + _opt.disableCls;
+            _href = 'javascript:;';
         }
 
         return '<a href="${href}" data-index="${index}" class="${class}">${content}</a>'
-            .replace('${href}', _opt.href ? _opt.href.replace('${index}', _index) : 'javascript:;')
+            .replace('${href}', _href)
             .replace('${index}', _index)
             .replace('${class}', _class)
             .replace('${content}', _content);
@@ -209,7 +209,7 @@
         }
 
         // 尾页
-        _pagination.push(_this.getDom(_opt.pageNum));
+        _opt.pageNum > 1 && _pagination.push(_this.getDom(_opt.pageNum));
 
         // 下一页
         if (_opt.keepPageNav || _opt.current < _opt.pageNum) {

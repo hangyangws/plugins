@@ -5,6 +5,9 @@
     var D = {
         id: function(_id) {
             return doc.getElementById(_id);
+        },
+        trim: function(_str) {
+            return _str.replace(/^\s*|\s*$/g, '');
         }
     }
 
