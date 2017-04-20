@@ -1,6 +1,6 @@
 # 航洋的插件
 
-> 在[`app`](https://github.com/hangyangws/myPlugin/tree/master/apps)目录下包含我制作的一些简单插件
+[全部预览](https://github.com/hangyangws/myPlugin/tree/master/apps)
 
 ### [日历](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)
 
@@ -12,4 +12,4 @@
 
 ### [表单验证](https://github.com/hangyangws/myPlugin/tree/master/apps/verify)
 
-欢迎阅读，共同学习^_^
+感谢阅读 共同学习 ^_^
