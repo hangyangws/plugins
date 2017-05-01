@@ -1,19 +1,37 @@
 ;
 ! function(g, doc, undefined) {
-    'use strict'; // 触发严格模式
+  'use strict'; // 触发严格模式
 
-    var D = {
-        id: function(_id) {
-            return doc.getElementById(_id);
-        },
-        trim: function(_str) {
-            return _str.replace(/^\s*|\s*$/g, '');
-        }
+  var getXHR = function() {
+    // Mozilla, Safari, IE7+ ...
+    if (g.XMLHttpRequest) {
+      return new XMLHttpRequest();
     }
+    // IE 6 and older
+    return new ActiveXObject("Microsoft.XMLHTTP");
+  };
 
-    HTMLElement.prototype.find = HTMLElement.prototype.find || function(_class) {
-        return this.querySelectorAll(_class);
+  var D = {
+    id: function(_id) {
+      return doc.getElementById(_id);
+    },
+    trim: function(_str) {
+      return _str.replace(/^\s*|\s*$/g, '');
+    },
+    ajax: function(_opt) {
+      // _opt = { // 默认参数
+      // };
+      // 继承用户参数
+      var xhrObj = getXHR();
+      xhrObj.onreadystatechange = alertContents;
+      xhrObj.open('GET', url);
+      xhrObj.send();
     }
+  }
 
-    g.$ = D;
+  HTMLElement.prototype.find = HTMLElement.prototype.find || function(_class) {
+    return this.querySelectorAll(_class);
+  }
+
+  g.$ = D;
 }(this, document);

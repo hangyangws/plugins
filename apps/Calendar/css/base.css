@@ -9,7 +9,7 @@
 /*标准字体大小（rem参照对象）*/
 
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 
@@ -21,10 +21,10 @@ html {
 
 html,
 body {
-    width: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+  width: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 
 
@@ -52,8 +52,8 @@ figure,
 input,
 textarea,
 form {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -62,9 +62,9 @@ form {
 input,
 select,
 textarea {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 
@@ -74,8 +74,8 @@ textarea {
  */
 
 table {
-    border-spacing: 0;
-    border-collapse: collapse;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 
@@ -88,21 +88,21 @@ img,
 input,
 button,
 textarea {
-    border: none;
+  border: none;
 }
 
 
 /*因为`input`默认不继承父元素的居中样式，所以让`input`元素继承父元素的文本居中方式*/
 
 input {
-    text-align: inherit;
+  text-align: inherit;
 }
 
 
 /*让`textarea`默认不可以放缩*/
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 
@@ -135,13 +135,13 @@ button,
 option,
 textarea,
 optgroup {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-    line-height: inherit;
-    color: inherit;
-    outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: inherit;
+  color: inherit;
+  outline: none;
 }
 
 
@@ -153,13 +153,13 @@ optgroup {
  */
 
 body {
-    font: 1rem 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'STHeiti Light [STXihei]', 'Microsoft Yahei', sans-serif;
-    position: relative;
-    color: #666;
-    background: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  font: 1rem 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'STHeiti Light [STXihei]', 'Microsoft Yahei', sans-serif;
+  position: relative;
+  color: #666;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 
@@ -169,7 +169,7 @@ body {
  */
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 
@@ -179,7 +179,7 @@ a {
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 
@@ -188,28 +188,28 @@ ul {
 button,
 input[type='submit'],
 input[type='button'] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 
 /*取消火狐浏览器部分版本`input`聚焦的时候默认的`padding、border`*/
 
 input::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+  padding: 0;
+  border: 0;
 }
 
 
 /*取消部分浏览器`input[type='number']`的默认样式*/
 
 input[type='number'] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
+  margin: 0;
+  -webkit-appearance: none;
 }
 
 
@@ -217,29 +217,29 @@ input[type=number]::-webkit-outer-spin-button {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-    color: #999;
+  color: #999;
 }
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-    color: #999;
+  color: #999;
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-    color: #999;
+  color: #999;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-    color: #999;
+  color: #999;
 }
 
 
 /*由于部分浏览器`template`直接显示出来，所以要隐藏`template`元素*/
 
 template {
-    display: none;
+  display: none;
 }
 
 
@@ -248,73 +248,73 @@ template {
  */
 
 .c {
-    zoom: 1;
+  zoom: 1;
 }
 
 .c::after {
-    display: block;
-    visibility: hidden;
-    clear: both;
-    height: 0;
-    content: '.';
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  content: '.';
 }
 
 
 /*position: fixed的缩写，原子类*/
 
 .pf {
-    position: fixed;
-    /*chrome 内核 浏览器 position: fixed 防止抖动*/
-    -webkit-transform: translateZ(0);
+  position: fixed;
+  /*chrome 内核 浏览器 position: fixed 防止抖动*/
+  -webkit-transform: translateZ(0);
 }
 
 
 /*利用绝对定位宽高拉升原理，中心居中元素，原子类*/
 
 .middle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 
 /*利用相对定位于`CSS3`使元素垂直居中，原子类*/
 
 .middle-v {
-    position: relative;
-    top: 50%;
-    -webkit-transform: -webkit-translateY(-50%);
-    -moz-transform: -moz-translateY(-50%);
-    -o-transform: -o-translateY(-50%);
-    transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  -webkit-transform: -webkit-translateY(-50%);
+  -moz-transform: -moz-translateY(-50%);
+  -o-transform: -o-translateY(-50%);
+  transform: translateY(-50%);
 }
 
 
 /*元素计算宽高德盒子模型以`border`为外界限，原子类*/
 
 .bb {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
 /*单行文本溢出显示省略号`to==>text-overflow`，原子类*/
 
 .to {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 
 /*媒体查询*/
 
 @media screen and (max-width: 320px) {
-    html {
-        font-size: 12px;
-    }
+  html {
+    font-size: 12px;
+  }
 }

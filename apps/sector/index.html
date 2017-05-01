@@ -2,40 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Sector</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <style>
-    .sector {
-        display: inline-block;
-        margin: 1rem;
-    }
-    </style>
+  <meta charset="UTF-8">
+  <title>Sector</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <style>
+  .sector {
+    display: inline-block;
+    margin: 1rem;
+  }
+  </style>
 </head>
 
 <body>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <div class="sector"></div>
-    <script src="./js/index.js"></script>
-    <script>
-    // 获取DOM节点，依次调用Sector构造函数
-    document.querySelectorAll('.sector').forEach(function($dom) {
-        new Sector({
-            $dom: $dom,
-            percent: Math.random() * 100,
-            direct: Math.random() > 0.5 ? 'left' : 'right'
-        });
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <div class="sector"></div>
+  <script src="./js/index.js"></script>
+  <script>
+  // 获取DOM节点，依次调用Sector构造函数
+  document.querySelectorAll('.sector').forEach(function($dom) {
+    new Sector({
+      $dom: $dom,
+      percent: Math.random() * 100,
+      direct: Math.random() > 0.5 ? 'left' : 'right'
     });
-    </script>
+  });
+  </script>
 </body>
 
 </html>
