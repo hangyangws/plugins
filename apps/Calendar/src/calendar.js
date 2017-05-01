@@ -139,10 +139,10 @@
       _this.isFirstOpt = false;
 
       // 绑定事件
-      _this.$parent.querySelector('.j-hy-cld-prev-year').tap(_this.prevYear.bind(_this));
-      _this.$parent.querySelector('.j-hy-cld-prev-month').tap(_this.prevMonth.bind(_this));
-      _this.$parent.querySelector('.j-hy-cld-next-year').tap(_this.nextYear.bind(_this));
-      _this.$parent.querySelector('.j-hy-cld-next-month').tap(_this.nextMonth.bind(_this));
+      _this.$parent.on('tap', '.j-hy-cld-prev-year', _this.prevYear.bind(_this));
+      _this.$parent.on('tap', '.j-hy-cld-prev-month', _this.prevMonth.bind(_this));
+      _this.$parent.on('tap', '.j-hy-cld-next-year', _this.nextYear.bind(_this));
+      _this.$parent.on('tap', '.j-hy-cld-next-month', _this.nextMonth.bind(_this));
     }
     _this.$title.innerHTML = _this.nowRender.year + '年' + _this.nowRender.month + '月';
     _this.$body.innerHTML = _cal_body;
