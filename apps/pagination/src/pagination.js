@@ -2,31 +2,6 @@
 ! function(g, doc, undefined) {
   'use strict'; // 触发严格模式
 
-  // 对象克隆
-  function cloneObj(obj) {
-    if (typeof obj !== 'object') {
-      return;
-    }
-    if (window.JSON) {
-      return JSON.parse(JSON.stringify(obj));
-    }
-    var newobj = obj.constructor === Array ? [] : {};
-    for (var i in obj) {
-      newobj[i] = typeof obj[i] === 'object' ?
-        cloneObj(obj[i]) : obj[i];
-    }
-    return newobj;
-  }
-
-  // 简单的对象融合
-  function extendsObj(to, from) {
-    to = cloneObj(to);
-    for (var i in to) {
-      (typeof from[i] !== 'undefined') && (to[i] = from[i]);
-    }
-    return to;
-  };
-
   // 默认配置参数（这些参数都是可用户自定义）
   var defaults = {
     el: null, // 分页DOM容器（必须）
@@ -63,7 +38,7 @@
     var _this = this; // 缓存this
 
     // 接受用户参数
-    var _opt = _this.opts = extendsObj(defaults, options);
+    var _opt = _this.opts = g.OBJECT.extendsObj(defaults, options);
 
     // 如果用户传入字符串 则修改为数字
     _opt.totalNum = _opt.totalNum - 0; // 总条数
