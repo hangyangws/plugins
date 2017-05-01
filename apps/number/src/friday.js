@@ -52,5 +52,5 @@
       return ~~(~~(n1 * l1) * ~~(n2 * l1)) / (l1 * l1);
     }
   };
-  g.Number = g.Number || number;
+  g.NUMBER = g.NUMBER || number;
 }(window || this);

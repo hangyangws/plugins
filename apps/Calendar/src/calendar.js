@@ -6,46 +6,6 @@
 (function(win, undefined) {
   'use strict'; // 触发严格模式
 
-  // DOM注册tap事件
-  HTMLElement.prototype.tap = HTMLElement.prototype.tap || function(callback) {
-    // 判断用户端
-    var _is_mobile = /AppleWebKit.*Mobile.*/.test(navigator.userAgent);
-    if (_is_mobile) {
-      var tapStartTime = 0,
-        tapEndTime = 0,
-        tapTime = 500, // tap等待时间，在此时间内松开可触发tap
-        tapStartClientX = 0,
-        tapStartClientY = 0,
-        tapEndClientX = 0,
-        tapEndClientY = 0,
-        tapScollHeight = 15, //水平或垂直方向移动超过15px测判定为取消（根据chrome浏览器默认的判断取消点击的移动量)
-        cancleClick = false;
-      this.addEventListener('touchstart', function() {
-        var touch = win.event.changedTouches[0];
-        tapStartTime = win.event.timeStamp;
-        tapStartClientX = touch.clientX;
-        tapStartClientY = touch.clientY;
-        cancleClick = false;
-      });
-      this.addEventListener('touchmove', function() {
-        var touch = win.event.changedTouches[0];
-        tapEndClientX = touch.clientX;
-        tapEndClientY = touch.clientY;
-        if ((Math.abs(tapEndClientX - tapStartClientX) > tapScollHeight) || (Math.abs(tapEndClientY - tapStartClientY) > tapScollHeight)) {
-          cancleClick = true;
-        }
-      });
-      this.addEventListener('touchend', function() {
-        tapEndTime = win.event.timeStamp;
-        if (!cancleClick && (tapEndTime - tapStartTime) < tapTime) {
-          callback();
-        }
-      });
-      return;
-    }
-    this.addEventListener('click', callback)
-  }
-
   // 工具函数
   var inDateList = function(_day_string, _date_lists) { // 判断日期时是否在日期列表里面
       var _day = new Date(_day_string),

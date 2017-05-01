@@ -1,4 +1,4 @@
-# Touch.js
+# touch.js
 
 ### 功能简介
 

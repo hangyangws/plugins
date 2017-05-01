@@ -32,5 +32,5 @@
       ].join('');
     }
   };
-  g.Cookie = g.Cookie || cookie;
+  g.COOKIE = g.COOKIE || cookie;
 }(this, document);

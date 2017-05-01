@@ -11,7 +11,7 @@
     return new ActiveXObject("Microsoft.XMLHTTP");
   };
 
-  var D = {
+  var dom = {
     id: function(_id) {
       return doc.getElementById(_id);
     },
@@ -33,5 +33,5 @@
     return this.querySelectorAll(_class);
   }
 
-  g.$ = D;
+  g.$ = dom;
 }(this, document);
