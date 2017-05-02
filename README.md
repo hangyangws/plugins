@@ -4,6 +4,8 @@
 
 ### [日历](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)
 
+### [cookie](https://github.com/hangyangws/myPlugin/tree/master/apps/cookie)
+
 ### [分页器](https://github.com/hangyangws/myPlugin/tree/master/apps/pagination)
 
 ### [事件模块](https://github.com/hangyangws/myPlugin/tree/master/apps/touch)
