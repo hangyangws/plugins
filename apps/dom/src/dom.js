@@ -1,24 +1,23 @@
-;
 ! function(g, doc, undefined) {
-  'use strict'; // 触发严格模式
+  'use strict'
 
   var dataToUrl = function(_obj) {
     var _url = [],
-      i;
+      i
     if (_obj && typeof _obj === 'object') {
       for (i in _obj) {
-        _url.push(i + '=' + _obj[i]);
+        _url.push(i + '=' + _obj[i])
       }
     }
-    return _url.join('&');
-  };
+    return _url.join('&')
+  }
 
   var dom = {
     id: function(_id) {
-      return doc.getElementById(_id);
+      return doc.getElementById(_id)
     },
     trim: function(_str) {
-      return _str.replace(/^\s*|\s*$/g, '');
+      return _str.replace(/^\s*|\s*$/g, '')
     },
     ajax: function(_opt) {
       // 参数
@@ -30,11 +29,11 @@
         async: true, // 是否异步，默认true
         error: null,
         headers: null
-      }, _opt);
+      }, _opt)
 
       if (_opt.data && typeof _opt.data === 'object') {
-        _opt.method === 'GET' && (_opt.url = _opt.url + '?' + dataToUrl(_opt.data));
-        _opt.data = JSON.stringify(_opt.data);
+        _opt.method === 'GET' && (_opt.url = _opt.url + '?' + dataToUrl(_opt.data))
+        _opt.data = JSON.stringify(_opt.data)
       }
 
       var xhrObj = new XMLHttpRequest(),
@@ -42,41 +41,41 @@
           try {
             if (xhrObj.readyState === XMLHttpRequest.DONE) {
               if ((xhrObj.status >= 200 && xhrObj.status < 300) || xhrObj.status == 304) {
-                _opt.success && _opt.success(xhrObj.responseText);
+                _opt.success && _opt.success(xhrObj.responseText)
               } else {
-                _opt.error && _opt.error(xhrObj.status);
+                _opt.error && _opt.error(xhrObj.status)
               }
             }
           } catch (e) {
-            _opt.error && _opt.error(e.description);
+            _opt.error && _opt.error(e.description)
           }
-        };
+        }
 
-      xhrObj.open(_opt.method, _opt.url, _opt.async);
+      xhrObj.open(_opt.method, _opt.url, _opt.async)
 
       // 请求头设置
       if (_opt.method === 'POST') {
         // POST传递表单数据
-        xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        // 接受与发送都是json格式
-        xhrObj.setRequestHeader('Accept', 'application/json');
-        xhrObj.setRequestHeader('Content-Type', 'application/json');
+        xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+          // 接受与发送都是json格式
+        xhrObj.setRequestHeader('Accept', 'application/json')
+        xhrObj.setRequestHeader('Content-Type', 'application/json')
       }
       if (_opt.headers && typeof _opt.headers === 'object') {
-        var i;
+        var i
         for (i in _opt.headers) {
-          xhrObj.setRequestHeader(i, _opt.headers[i]);
+          xhrObj.setRequestHeader(i, _opt.headers[i])
         }
       }
 
-      xhrObj.onreadystatechange = dataWatch;
-      xhrObj.send(_opt.data);
+      xhrObj.onreadystatechange = dataWatch
+      xhrObj.send(_opt.data)
     }
   }
 
   HTMLElement.prototype.find = HTMLElement.prototype.find || function(_class) {
-    return this.querySelectorAll(_class);
-  };
+    return this.querySelectorAll(_class)
+  }
 
-  g.$ = dom;
-}(this, document);
+  g.$ = dom
+}(this, document)
