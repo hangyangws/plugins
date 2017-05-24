@@ -1,7 +1,7 @@
 ! function(g, doc, undefined) {
   'use strict'
 
-  var dataToUrl = function(_obj) {
+  function dataToUrl(_obj) {
     var _url = [],
       i
     if (_obj && typeof _obj === 'object') {
@@ -12,7 +12,7 @@
     return _url.join('&')
   }
 
-  var dom = {
+  var Dom = {
     id: function(_id) {
       return doc.getElementById(_id)
     },
@@ -77,5 +77,5 @@
     return this.querySelectorAll(_class)
   }
 
-  g.$ = dom
+  g.$ = Dom
 }(this, document)
