@@ -6,7 +6,7 @@
 
 [点我查看DEMO](http://hangyangws.win/myPlugin/apps/sector/)
 
-### 还是废话^_^
+### 还是废话
 
 设计师经常设计一些进度条  
 我遇到的最常见之一就有圆形进度条  

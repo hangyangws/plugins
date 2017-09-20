@@ -1,3 +1,4 @@
+;
 ! function(g, doc, undefined) {
   'use strict'
 
@@ -15,9 +16,6 @@
   var Dom = {
     id: function(_id) {
       return doc.getElementById(_id)
-    },
-    trim: function(_str) {
-      return _str.replace(/^\s*|\s*$/g, '')
     },
     ajax: function(_opt) {
       // 参数
@@ -57,7 +55,7 @@
       if (_opt.method === 'POST') {
         // POST传递表单数据
         xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-          // 接受与发送都是json格式
+        // 接受与发送都是json格式
         xhrObj.setRequestHeader('Accept', 'application/json')
         xhrObj.setRequestHeader('Content-Type', 'application/json')
       }

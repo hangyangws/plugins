@@ -2,15 +2,21 @@
 
 [全部预览](https://github.com/hangyangws/myPlugin/tree/master/apps)
 
-### [日历](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)
+### [日历 - calendar](https://github.com/hangyangws/myPlugin/tree/master/apps/calendar)
 
 ### [cookie](https://github.com/hangyangws/myPlugin/tree/master/apps/cookie)
 
-### [分页器](https://github.com/hangyangws/myPlugin/tree/master/apps/pagination)
+### [dom](https://github.com/hangyangws/myPlugin/tree/master/apps/dom)
 
-### [事件模块](https://github.com/hangyangws/myPlugin/tree/master/apps/touch)
+### [number](https://github.com/hangyangws/myPlugin/tree/master/apps/number)
 
-### [圆形度条](https://github.com/hangyangws/myPlugin/tree/master/apps/sector)
+### [object](https://github.com/hangyangws/myPlugin/tree/master/apps/object)
+
+### [分页器 - pagination](https://github.com/hangyangws/myPlugin/tree/master/apps/pagination)
+
+### [圆形度条 - sector](https://github.com/hangyangws/myPlugin/tree/master/apps/sector)
+
+### [事件模块 - touch](https://github.com/hangyangws/myPlugin/tree/master/apps/touch)
 
 ### [表单验证](https://github.com/hangyangws/myPlugin/tree/master/apps/verify)
 
