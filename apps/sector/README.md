@@ -4,7 +4,7 @@
 
 ### 废话少说，上效果
 
-[点我查看DEMO](http://hangyangws.win/myPlugin/apps/sector/)
+[点我查看DEMO](http://hangyangws.win/plugins/apps/sector/)
 
 ### 还是废话
 

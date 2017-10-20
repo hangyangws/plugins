@@ -2,7 +2,7 @@
 
 ### 依赖
 
-[object.js](https://github.com/hangyangws/myPlugin/tree/master/apps/object)
+[object.js](https://github.com/hangyangws/plugins/tree/master/apps/object)
 
 
 ### $.ajax

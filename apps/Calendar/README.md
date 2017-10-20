@@ -11,11 +11,11 @@
 
 ### 依赖
 
-依赖于[touch.js](https://github.com/hangyangws/myPlugin/tree/master/apps/touch)、[base.css](https://github.com/hangyangws/baseCss)
+依赖于[touch.js](https://github.com/hangyangws/plugins/tree/master/apps/touch)、[base.css](https://github.com/hangyangws/baseCss)
 
 ### 使用方法
 
-首先开发者要从[github](https://github.com/hangyangws/myPlugin/tree/master/apps/Calendar)上检出代码  
+首先开发者要从[github](https://github.com/hangyangws/plugins/tree/master/apps/Calendar)上检出代码  
 再引入相应的CSS、JS、依赖文件  
 然后只需要写如下相关的代码即可
 
@@ -36,4 +36,4 @@ var $calendarWrapWrap = document.querySelector('.calendar-wrap'),
 
 ### DEMO
 
-[点击查看](http://hangyangws.win/myPlugin/apps/Calendar/)
+[点击查看](http://hangyangws.win/plugins/apps/Calendar/)
