@@ -9,23 +9,23 @@
    * @param  {[function]}    h [绑定的方法，内部this为绑定的DOM，第一个参数为事件e]
    */
   var on = (function() {
-      if (doc.addEventListener) {
-        return function(e, t, h) {
-          e.addEventListener(t, h, false);
-        }
-      }
-      if (doc.attachEvent) {
-        return function(e, t, h) {
-          e.attachEvent('on' + t, h);
-        }
-      }
+    if (doc.addEventListener) {
       return function(e, t, h) {
-        e['on' + t] = h;
+        e.addEventListener(t, h, false);
       }
-    })(),
-    getE = function(e) {
-      return e || g.event;
-    };
+    }
+    if (doc.attachEvent) {
+      return function(e, t, h) {
+        e.attachEvent('on' + t, h);
+      }
+    }
+    return function(e, t, h) {
+      e['on' + t] = h;
+    }
+  })();
+  var getE = function(e) {
+    return e || g.event;
+  };
 
   function tap(_dom, _child, _callback) {
     // 移动端
