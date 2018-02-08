@@ -10,8 +10,6 @@
 
 ### [number](https://github.com/hangyangws/plugins/tree/master/src/number)
 
-### [object](https://github.com/hangyangws/plugins/tree/master/src/object)
-
 ### [分页器 - pagination](https://github.com/hangyangws/plugins/tree/master/src/pagination)
 
 ### [圆形度条 - sector](https://github.com/hangyangws/plugins/tree/master/src/sector)

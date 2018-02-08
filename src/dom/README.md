@@ -4,7 +4,6 @@
 
 [object.js](https://github.com/hangyangws/plugins/tree/master/apps/object)
 
-
 ### $.ajax
 
 ```js
