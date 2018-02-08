@@ -1,19 +1,14 @@
-# 一些傻逼工具、插件
+*[Lists](https://github.com/hangyangws/plugins/tree/master/src)*
 
-[全部预览](https://github.com/hangyangws/plugins/tree/master/src)
+## 一些坑
 
-### [日历 - calendar](https://github.com/hangyangws/plugins/tree/master/src/calendar)
+- [事件模块 - touch](https://github.com/hangyangws/plugins/tree/master/src/touch)
+- [日历 - calendar](https://github.com/hangyangws/plugins/tree/master/src/calendar)
+- [分页器 - pagination](https://github.com/hangyangws/plugins/tree/master/src/pagination)
+- [dom](https://github.com/hangyangws/plugins/tree/master/src/dom)
 
-### [cookie](https://github.com/hangyangws/plugins/tree/master/src/cookie)
+## 一些「幼年时」的傻逼代码
 
-### [dom](https://github.com/hangyangws/plugins/tree/master/src/dom)
-
-### [number](https://github.com/hangyangws/plugins/tree/master/src/number)
-
-### [分页器 - pagination](https://github.com/hangyangws/plugins/tree/master/src/pagination)
-
-### [圆形度条 - sector](https://github.com/hangyangws/plugins/tree/master/src/sector)
-
-### [事件模块 - touch](https://github.com/hangyangws/plugins/tree/master/src/touch)
-
-### [表单验证](https://github.com/hangyangws/plugins/tree/master/src/verify)
+- ~~[cookie](https://github.com/hangyangws/plugins/tree/master/src/cookie)~~
+- ~~[圆形度条 - sector](https://github.com/hangyangws/plugins/tree/master/src/sector)~~
+- ~~[表单验证](https://github.com/hangyangws/plugins/tree/master/src/verify)~~
